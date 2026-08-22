@@ -6,11 +6,12 @@ module.exports = {
 
     entry: './src/js/index.js',
 
-    output: {
-        filename: 'js/bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        clean: true,
-    },
+ output: {
+    filename: 'js/bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+    publicPath: './',
+},
 
     module: {
         rules: [
