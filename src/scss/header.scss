@@ -1,0 +1,244 @@
+@use "./variables" as vars;
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 88px;
+    padding: 24px 16px;
+    background-color: vars.$color-white;
+    border-bottom: 1px solid vars.$color-border;
+
+    &__title {
+    display: none;
+}
+
+&__higlight {
+    display: none;
+}
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__burger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: vars.$color-pink;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        img {
+            width: 18px;
+            height: 16px;
+        }
+    }
+
+    &__divider1,
+    &__divider3 {
+                display: none;
+               
+            }   
+
+    &__logo {
+        width: 97px;
+        height: auto;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: vars.$color-pink;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__action.phone,
+    &__action.message,
+    &__action.person,
+     &__action.search
+  {
+        display: none;
+    }
+     .header__action-text {
+            display: none;
+    }
+
+
+}
+
+@media (min-width: vars.$tablet) {
+    .header {
+        padding: 24px 24px;
+
+        &__left {
+            gap: 20px;
+        }
+
+         &__divider2 {
+            display: none;  
+            }   
+
+             &__divider1,
+             &__divider3 {
+                display: block;
+            }  
+
+        &__actions {
+            gap: 16px;
+        }
+
+        &__action {
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4),
+            &:nth-child(5) {
+                display: flex;
+            }
+
+            &__action.search__open {
+                display: none;
+            }
+ 
+        }
+        .header__action-text {
+            display: none;
+    }
+}     
+}
+                
+                                
+                               
+                      
+
+@media (min-width: 1440px) {
+    .header {
+       display: flex;
+    align-items: center;
+     margin-left: 320px;
+    justify-content: space-between;
+    width: calc(100% - 320px);
+     padding: 24px 32px;
+    min-height: 88px;
+   border-bottom: none;
+   background-color: transparent;
+
+   .header__title {
+    display: block;
+    margin: 0 auto 0 32px;
+    font-family: 'TTLakes', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.6px;
+    color: #1b1c21;
+}
+.header__higlight {
+    display: block;
+    position: fixed;
+    top: 24px;
+    left: 320px;
+    width: 4px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    z-index: 1100;
+}
+
+.header__higlight img {
+    display: block;
+    width: 4px;
+    height: 40px;
+}
+
+        &__burger,
+        &__logo {
+            display: none;
+        }
+
+        &__left {
+            display: none;
+        }
+
+        &__actions {
+            margin-left: auto;
+        }
+
+         &__action {
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+                display: none;
+            }
+             &:nth-child(5) {
+                display: flex;
+             }
+             &__action.search__open {
+               margin-left: 168px;
+             }
+        }
+        .header__divider3 {
+            display: none;
+        }
+         .header__action-text {
+            display: block;
+    }
+}
+ .sidebar__link-title {
+font-family: TT Lakes;
+font-weight: 700;
+font-size: 28px;
+line-height: 40px;
+letter-spacing: -0.6px;
+}
+
+.sidebar__highlight {
+        display: block;
+        position: absolute;
+       width: 3px;
+height: 40px;
+top: 42px;
+left: 308px;
+border-radius: 2px;
+}
+}
+

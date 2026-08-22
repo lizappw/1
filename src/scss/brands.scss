@@ -1,0 +1,211 @@
+@use "./variables" as vars;
+
+.brands {
+    width: 100%;
+    background-color: #f8f8f8;
+    border-top: 1px solid #41f6d7;
+    box-sizing: border-box;
+
+    &__title {
+        margin: 0;
+        padding: 16px;
+        background-color: #ffffff;
+        color: #7e7e82;
+        font-family: 'TTLakes', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-transform: uppercase;
+    }
+
+    &__slider {
+        width: 100%;
+        padding: 16px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    &__wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 0 0 240px;
+        width: 240px;
+        height: 72px;
+        padding: 16px;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        border: 1px solid #eaeaea;
+        border-radius: 6px;
+        text-decoration: none;
+        scroll-snap-align: start;
+
+        > img:first-child {
+            max-width: 120px;
+            max-height: 40px;
+            object-fit: contain;
+        }
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #ff3e79;
+        border-radius: 50%;
+        box-sizing: border-box;
+        flex-shrink: 0;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__pagination {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    &__dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #dddddd;
+
+        &--active {
+            background-color: #7e7e82;
+        }
+    }
+
+    &__more {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        margin: 0 16px 24px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: #1b1c21;
+        font-family: 'TTLakes', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        cursor: pointer;
+
+        img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+            transform: none;
+        }
+    }
+
+    &__more--open img {
+        transform: rotate(180deg);
+    }
+}
+
+
+// Планшет
+@media (min-width: 768px) and (max-width: 1365px) {
+    .brands {
+        &__title {
+            padding: 16px 24px;
+        }
+
+        &__slider {
+            padding: 16px 24px;
+        }
+
+        &__wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px 24px;
+            overflow: hidden;
+        }
+
+      
+        &__card:nth-child(n + 7) {
+            display: none;
+        }
+
+      
+        &__wrapper--open &__card:nth-child(n + 7) {
+            display: flex;
+        }
+
+        &__card {
+            width: 100%;
+            min-width: 0;
+            flex: none;
+        }
+
+        &__pagination {
+            display: none;
+        }
+
+        &__more {
+            display: flex;
+        }
+    }
+}
+
+
+// Десктоп
+@media (min-width: 1366px) {
+    .brands {
+        &__title {
+            padding: 12px 32px;
+        }
+
+        &__slider {
+            padding: 16px 32px 0;
+        }
+
+        &__wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px 24px;
+            overflow: visible;
+        }
+
+     
+        &__card {
+            width: 100%;
+            min-width: 0;
+            flex: none;
+        }
+
+        &__pagination {
+            display: none;
+        }
+
+       
+        &__more {
+            display: flex;
+            margin-left: 32px;
+            margin-bottom: 24px;
+            margin-top: 16px;
+        }
+    }
+}

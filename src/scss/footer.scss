@@ -1,0 +1,65 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 16px;
+    border-top: 1px solid #d9fff8;
+    background-color: #f8f8f8;
+    color: #7e7e82;
+    font-family: 'TT Lakes', sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.footer__copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer__privacy {
+    color: #7e7e82;
+}
+
+.footer__offer {
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 24px;
+        text-align: left;
+    }
+
+    .footer__copyright {
+        flex: 1;
+    }
+
+    .footer__privacy {
+        flex: 1;
+        text-align: center;
+    }
+
+    .footer__offer {
+        flex: 1;
+        text-align: right;
+    }
+}
+
+@media (min-width: 1366px) {
+    .footer {
+        margin-top: 24px;
+        padding: 24px 32px;
+    }
+
+    .footer__copyright {
+        display: flex;
+        flex-direction: row;    
+        gap: 260px;
+    }
+}
