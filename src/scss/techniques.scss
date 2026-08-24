@@ -159,3 +159,12 @@
         }
     }
 }
+
+
+.techniques__card--extra {
+    display: none;
+}
+
+.techniques__list--open .techniques__card--extra {
+    display: flex;
+}

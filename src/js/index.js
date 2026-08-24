@@ -59,6 +59,21 @@ languages.forEach((language) => {
 });
 
 
+// Табы
+const introLinks = document.querySelectorAll('.intro__link');
+
+introLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        introLinks.forEach((item) => {
+            item.classList.remove('intro__link--active');
+        });
+
+        link.classList.add('intro__link--active');
+    });
+});
+
 // Читать далее
 const descriptionMore = document.querySelector('.description__more');
 const descriptionMoreText = descriptionMore?.querySelector('span');
@@ -85,18 +100,6 @@ const brandsWrapper = document.querySelector('.brands__wrapper');
 
 if (brandsMore && brandsWrapper) {
     brandsMore.addEventListener('click', () => {
-       
-       
-        if (window.innerWidth >= 1366) {
-            brandsMore.querySelector('span').textContent =
-                brandsMore.querySelector('span').textContent === 'Показать все'
-                    ? 'Скрыть'
-                    : 'Показать все';
-
-            brandsMore.classList.toggle('brands__more--open');
-            return;
-        }
-
         brandsWrapper.classList.toggle('brands__wrapper--open');
 
         const isOpen = brandsWrapper.classList.contains('brands__wrapper--open');
@@ -116,15 +119,21 @@ const techniquesList = document.querySelector('.techniques__list');
 if (techniquesMore && techniquesList) {
     techniquesMore.addEventListener('click', () => {
       
-        if (window.innerWidth >= 1366) {
-            techniquesMore.querySelector('span').textContent =
-                techniquesMore.querySelector('span').textContent === 'Показать все'
-                    ? 'Скрыть'
-                    : 'Показать все';
+      const techniquesMore = document.querySelector('.techniques__more');
+const techniquesList = document.querySelector('.techniques__list');
 
-            techniquesMore.classList.toggle('techniques__more--open');
-            return;
-        }
+if (techniquesMore && techniquesList) {
+    techniquesMore.addEventListener('click', () => {
+        techniquesList.classList.toggle('techniques__list--open');
+
+        const isOpen = techniquesList.classList.contains('techniques__list--open');
+
+        techniquesMore.querySelector('span').textContent =
+            isOpen ? 'Скрыть' : 'Показать все';
+
+        techniquesMore.classList.toggle('techniques__more--open', isOpen);
+    });
+}
 
         techniquesList.classList.toggle('techniques__list--open');
 
